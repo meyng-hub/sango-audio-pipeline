@@ -1,0 +1,51 @@
+order,bucket,sango,french,english
+1,greeting,bara âla,bonjour,hello
+2,greeting,Singila,Merci,Thank you
+3,greeting,balaó,salut,hi
+4,greeting,Ndzoni,Bienvenue,Welcome
+5,greeting,Goué nzoni,Au revoir,Goodbye
+6,greeting,Tongana nye?,Comment ca va?,How are you?
+7,greeting,Mbi yeke séngé,Je vais bien,I'm doing fine
+8,greeting,Yeke Sengué,ça va,It is okay
+9,greeting,Mawa,Désolé,Sorry
+10,greeting,Mbi gbû gèrè ti âla,Pardon,Sorry / Excuse me
+11,number,parâ,zéro,zero
+12,number,ôko,un,one
+13,number,ûse,deux,two
+14,number,ôtä,trois,three
+15,number,ôsiö,quatre,four
+16,number,okû,cinq,five
+17,number,ômênë,six,six
+18,number,mbárámbárá,sept,seven
+19,number,miombê,huit,eight
+20,number,gumbaya,neuf,nine
+21,number,balë-ôko,dix,ten
+22,essential,Ein,Oui,Yes
+23,essential,Awe,Non,No
+24,essential,lo,il/elle,he/she
+25,essential,ala,ils/elles,they
+26,essential,mo,tu / vous,you
+27,question,Okè,Combien ?,How much?
+28,question,ndo,où,where
+29,verb,tê,manger,to eat
+30,verb,Nyon,Boire,to drink
+31,verb,lango,dormir,to sleep
+32,verb,Sara tene,Parler,to speak
+33,verb,Bâ,voir,to see
+34,verb,Gwe,Aller,to go
+35,verb,Ga,Venir,to come
+36,verb,Sara,Faire,to do / to make
+37,verb,hinga,savoir,to know
+38,verb,gbe,donner,to give
+39,verb,Yeke,Etre,to be
+40,noun,Ngu,Eau,water
+41,noun,kôbë,nourriture,food
+42,noun,kîtâ,maison,home
+43,noun,sêwa,famille,family
+44,noun,molenge,enfant,child
+45,noun,koli,homme,man
+46,noun,wali,femme,woman
+47,noun,Guinzâ,Argent,money
+48,greeting,Ye ayeke da apè,Tout va bien,I am fine
+49,greeting,iri tí mo nye ?,comment t'appelles-tu?,What's your name?
+50,greeting,Te kobe nzoni,Bon appetit,Enjoy your meal

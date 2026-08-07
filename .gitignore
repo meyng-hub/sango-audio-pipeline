@@ -1,0 +1,12 @@
+# No audio is ever committed to this repo — recordings are published only
+# through the consent-gated dataset pipeline (see README: Consent comes first).
+*.mp3
+*.m4a
+*.wav
+*.ogg
+out/
+raw-recordings/
+__pycache__/
+*.pyc
+audio-manifest.json
+vocabulary.jsonl
