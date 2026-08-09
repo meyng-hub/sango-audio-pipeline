@@ -78,10 +78,29 @@ jobs:
             Report findings with file and line. If you find nothing, say so
             plainly rather than manufacturing a finding.
 
-# UNVERIFIED -- needs confirmation before the first run:
-# The action's docs/cloud-providers.md shows `actions/create-github-app-token`
-# alongside the OIDC examples, but does not state whether a GitHub App token is
-# REQUIRED for Bedrock or is merely the setup they happen to document. This
-# workflow relies on the default GITHUB_TOKEN. If the first run fails on
-# authentication rather than on AWS, that is the reason -- add the App token
-# step then, not pre-emptively.
+# PREREQUISITE, verified 2026-08-09 by a real run of this workflow:
+# A GitHub App IS required. The default GITHUB_TOKEN is not sufficient -- the
+# action exits 1 with:
+#     Claude Code is not installed on this repository.
+#     Please install the Claude Code GitHub App at https://github.com/apps/claude
+# Note this is a repository prerequisite, not a workflow input: there is nothing
+# to add to this file. Install the app on THIS repo (github.com/apps/claude),
+# then re-run. The alternative is bringing your own App -- create one, set
+# APP_ID and APP_PRIVATE_KEY as repo secrets, and add an
+# actions/create-github-app-token step before the review step, as shown in the
+# action's docs/cloud-providers.md.
+#
+# Failure-mode triage for this workflow, from the two real failures seen:
+#   "Not authorized to perform sts:AssumeRoleWithWebIdentity"
+#       -> the IAM trust policy's sub condition does not match. GitHub emits
+#          immutable numeric IDs in the claim
+#          (repo:owner@<owner_id>/repo@<repo_id>:<context>), so a hand-built
+#          "repo:owner/repo:*" never matches. AWS returns this same string for a
+#          nonexistent role, so do not assume the role is missing.
+#          Read the truth from:
+#            gh api repos/<repo>/actions/oidc/customization/sub \
+#              --jq .sub_claim_prefix
+#   "AccessDenied" naming a region nobody configured
+#       -> a cross-region ("us.") inference profile invokes member foundation
+#          models in several regions; the IAM policy must cover all of them.
+#          Resolve with: aws bedrock get-inference-profile --query models[].modelArn
