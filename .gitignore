@@ -10,3 +10,13 @@ __pycache__/
 *.pyc
 audio-manifest.json
 vocabulary.jsonl
+
+# Secrets and local tool session state
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+credentials*.json
+SESSION-STATE.md
