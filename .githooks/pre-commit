@@ -1,0 +1,12 @@
+#!/bin/sh
+# Secret scan on the staged diff. Stdlib Python only; fails closed if the scan cannot run.
+# Enable once per clone:  sh scripts/setup-hooks.sh
+PY=$(command -v python3 || command -v python || true)
+if [ -z "$PY" ]; then
+  echo "secret-scan: no python on PATH -- install python or commit with the CI check as the only control." >&2
+  exit 1
+fi
+"$PY" scripts/ci/secret-scan-gate.py --staged || {
+  echo "Secret scan blocked this commit. See the message above." >&2
+  exit 1
+}
