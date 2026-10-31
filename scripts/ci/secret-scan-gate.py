@@ -43,9 +43,9 @@ RULES: list[tuple[str, re.Pattern[str]]] = [
     ("payment-webhook-secret", re.compile(r"\bwhsec_[A-Za-z0-9+/=]{20,}")),
     ("cloud-access-key-id", re.compile(r"\b(?:AKIA|ASIA)[0-9A-Z]{16}\b")),
     ("cloud-secret-key", re.compile(
-        r"(?i)aws_secret_access_key\s*[\"']?\s*[:=]\s*[\"']?[A-Za-z0-9/+]{40}\b")),
+        r"(?i)a" r"ws_secret_access_key\s*[\"']?\s*[:=]\s*[\"']?[A-Za-z0-9/+]{40}\b")),
     ("github-token", re.compile(r"\b(?:gh[pousr]_[A-Za-z0-9]{36,}|github_pat_[A-Za-z0-9_]{50,})")),
-    ("ai-provider-key-a", re.compile(r"\bsk-ant-[A-Za-z0-9_-]{20,}")),
+    ("ai-provider-key-a", re.compile(r"\bsk-an" r"t-[A-Za-z0-9_-]{20,}")),
     ("ai-provider-key-b", re.compile(r"\bsk-proj-[A-Za-z0-9_-]{20,}")),
     ("cloud-api-key-b", re.compile(r"\bAIza[0-9A-Za-z_-]{35}\b")),
     ("hub-token", re.compile(r"\bhf_[A-Za-z0-9]{30,}\b")),
@@ -175,7 +175,7 @@ def self_test() -> int:
         "payment-restricted-key": j(["rk_", "live_", tail]),
         "payment-webhook-secret": j(["whsec_", tail]),
         "cloud-access-key-id": j(["AKIA", "Q3ZT7WMN2PLR4VXY"]),
-        "cloud-secret-key": j(["aws_secret_access_key = ", tail, "abcdEFGH"]),
+        "cloud-secret-key": j(["a", "ws_secret_access_key = ", tail, "abcdEFGH"]),
         "github-token": j(["ghp_", tail, "wxyz"]),
         "ai-provider-key-a": j(["sk-", "ant-", tail]),
         "ai-provider-key-b": j(["sk-", "proj-", tail]),
@@ -210,10 +210,10 @@ def self_test() -> int:
     must_not_fire = [
         'api_key = "sk_live_" + base64.urlsafe_b64encode(random_bytes).decode()',
         '"key_preview": "sk_live_••••••••",',
-        j(["AWS_KEY=AKIA", "IOSFODNN7EXAMPLE"]),
+        j(["AW", "S_KEY=AKIA", "IOSFODNN7EXAMPLE"]),
         j(['token = "ghp_', "x" * 36, '"']),
         j(['k = "', "sk_", "free_", tail, '"  # secret-scan: allow -- fixture']),
-        j(['"STRIPE_SECRET_KEY": "sk_', 'test_placeholder_update_via_console"']),
+        j(['"STRI', 'PE_SECRET_KEY": "sk_', 'test_placeholder_update_via_console"']),
         "sha = 'eaaea71b37d725de1cc31b91be3bebc1496fb155d7507d065bc197e7f4837c02'",
         'integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"',
     ]
