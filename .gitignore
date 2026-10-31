@@ -11,7 +11,7 @@ __pycache__/
 audio-manifest.json
 vocabulary.jsonl
 
-# Secrets and local session state (added by Claude-ops audit, Phase 3)
+# Secrets and local tool session state
 .env
 .env.*
 !.env.example
