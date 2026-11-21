@@ -1,8 +1,8 @@
 # sango-audio-pipeline
 
 Field toolchain for building a native-speaker pronunciation corpus for
-**Sango** (ISO 639-3: `sag`) — the national language of the Central African
-Republic — from nothing more than a phone, a quiet room, and `ffmpeg`.
+**Sango** (ISO 639-3: `sag`) — the co-official language of the Central African
+Republic (with French) — from nothing more than a phone, a quiet room, and `ffmpeg`.
 
 This is the pipeline behind the audio work for
 [`MEYNG/sango-vocabulary`](https://huggingface.co/datasets/MEYNG/sango-vocabulary)
@@ -102,6 +102,6 @@ dataset and is licensed **CC-BY-SA-4.0** like its source.
 
 ## About
 
-Built by [MEYNG](https://www.meyng.com) for [SangoAI](https://sangoai.sbs),
+Built by [MEYNG](https://www.meyng.com) for [SangoAI](https://sangoai.app),
 with the HCW association (Bangui, Central African Republic). Contact:
 contact@meyng.com
